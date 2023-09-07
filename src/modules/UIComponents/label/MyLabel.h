@@ -2,17 +2,17 @@
 // Created by Sina KH on 9/7/23.
 //
 
-#ifndef TONCOIN_WALLET_DESKTOP_MYBUTTON_H
-#define TONCOIN_WALLET_DESKTOP_MYBUTTON_H
+#ifndef TONCOIN_WALLET_DESKTOP_MYLABEL_H
+#define TONCOIN_WALLET_DESKTOP_MYLABEL_H
 
-#include <QPushButton>
+#include <QLabel>
 
 namespace UIComponents {
-    class MyButton : public QPushButton {
+    class MyLabel : public QLabel {
     Q_OBJECT
 
     public:
-        MyButton(QWidget *parent = nullptr);
+        MyLabel(QWidget *parent = nullptr);
 
     signals:
 
@@ -20,4 +20,4 @@ namespace UIComponents {
     };
 }
 
-#endif //TONCOIN_WALLET_DESKTOP_MYBUTTON_H
+#endif //TONCOIN_WALLET_DESKTOP_MYLABEL_H

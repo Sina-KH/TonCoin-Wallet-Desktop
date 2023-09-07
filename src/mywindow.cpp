@@ -1,13 +1,21 @@
 #include "mywindow.h"
+#include "modules/UICreateWallet/screens/IntroScreen/IntroScreen.h"
 
-#include <QLabel>
+#include <QStackedWidget>
+#include <QVBoxLayout>
 
 MyWindow::MyWindow(QWidget *parent)
     : QMainWindow(parent)
 {
-    auto label = new QLabel(this);
-    label->setText("Hi TON!");
-    setCentralWidget(label);
+    resize(400, 600);
+
+    auto *stackedWidget = new QStackedWidget(this);
+
+    // Intro Screen
+    auto *introScreen = new UICreateWallet::IntroScreen(this);
+    stackedWidget->addWidget(introScreen);
+
+    setCentralWidget(stackedWidget);
 }
 
 MyWindow::~MyWindow()

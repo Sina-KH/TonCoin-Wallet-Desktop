@@ -5,12 +5,19 @@
 #ifndef TONCOIN_WALLET_DESKTOP_MYBUTTON_H
 #define TONCOIN_WALLET_DESKTOP_MYBUTTON_H
 
+#include <QPushButton>
 
+namespace UIComponents {
+    class MyButton : public QPushButton {
+    Q_OBJECT
 
-class MyButton {
+    public:
+        MyButton(QWidget *parent = nullptr);
 
-};
+    signals:
 
-
+    public slots:
+    };
+}
 
 #endif //TONCOIN_WALLET_DESKTOP_MYBUTTON_H

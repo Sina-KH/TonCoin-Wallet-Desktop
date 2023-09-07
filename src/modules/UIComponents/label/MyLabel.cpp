@@ -2,11 +2,10 @@
 // Created by Sina KH on 9/7/23.
 //
 
-#include "MyButton.h"
+#include "MyLabel.h"
 
-UIComponents::MyButton::MyButton(QWidget *parent)
-        : QPushButton(parent)
+UIComponents::MyLabel::MyLabel(QWidget *parent)
+        : QLabel(parent)
 {
-    // Add any custom initialization or styling here
-    setText("Custom Button"); // Set the text on the button
+    setWordWrap(true);
 }

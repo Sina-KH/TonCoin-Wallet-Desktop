@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(Toncoin-Wallet-Desktop VERSION 0.0.1 LANGUAGES CXX)
+project(Toncoin-Wallet-Desktop VERSION 0.0.2 LANGUAGES CXX)
 
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
@@ -17,6 +17,10 @@ set(PROJECT_SOURCES
         src/mywindow.cpp
         src/mywindow.h
 )
+
+# Add SubModules
+add_subdirectory(src/modules/UIComponents)
+add_subdirectory(src/modules/UICreateWallet)
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(Toncoin-Wallet-Desktop
@@ -42,6 +46,10 @@ else()
 endif()
 
 target_link_libraries(Toncoin-Wallet-Desktop PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+
+# Link SubModules
+target_link_libraries(Toncoin-Wallet-Desktop PRIVATE UIComponents)
+target_link_libraries(Toncoin-Wallet-Desktop PRIVATE UICreateWallet)
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an

@@ -5,11 +5,19 @@
 #ifndef TONCOIN_WALLET_DESKTOP_INTROSCREEN_H
 #define TONCOIN_WALLET_DESKTOP_INTROSCREEN_H
 
+#include "QWidget"
+
 namespace UICreateWallet {
 
-class IntroScreen {
+    class IntroScreen : public QWidget
+    {
+        Q_OBJECT
 
-};
+    public:
+        IntroScreen(QWidget *parent = nullptr);
+
+    private slots:
+    };
 
 } // UICreateWallet
 
