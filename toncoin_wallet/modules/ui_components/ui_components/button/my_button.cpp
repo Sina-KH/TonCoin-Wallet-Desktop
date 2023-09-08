@@ -56,10 +56,17 @@ UIComponents::MyButton::MyButton(QWidget *parent, QString title,
     setMinimumWidth(160);
     setText(title);
 
-    updateStyledTheme();
+    auto font = QFont("Inter");
+    font.setPointSize(14);
+    font.setWeight(QFont::Weight::Normal);
+    setFont(font);
+
+    updateStyledButton();
 }
 
-void UIComponents::MyButton::updateStyledTheme() {
+void UIComponents::MyButton::updateStyledTheme() { updateStyledButton(); }
+
+void UIComponents::MyButton::updateStyledButton() {
     switch (buttonType) {
     case Type::Primary:
         setStyleSheet(MyThemeManager::getInstance().getCurrentStylesheet(

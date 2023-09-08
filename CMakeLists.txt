@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(Toncoin-Wallet-Desktop VERSION 0.0.11 LANGUAGES CXX)
+project(Toncoin-Wallet-Desktop VERSION 0.0.12 LANGUAGES CXX)
 
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
@@ -29,15 +29,24 @@ set(PROJECT_SOURCES
 add_subdirectory(toncoin_wallet/modules/ui_components)
 add_subdirectory(toncoin_wallet/modules/ui_create_wallet)
 
+# Assets
+configure_file(toncoin_wallet/assets/assets.qrc ${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
+configure_file(toncoin_wallet/assets/fonts/Inter.ttf ${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
+set(ASSET_FILES
+    ${CMAKE_CURRENT_BINARY_DIR}/assets.qrc
+    ${CMAKE_CURRENT_BINARY_DIR}/Inter.ttf
+)
+
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_create_translation(QM_FILES ${CMAKE_CURRENT_SOURCE_DIR} ${TS_FILES})
-    configure_file(toncoin_wallet/Translations/translations.qrc ${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
+    configure_file(toncoin_wallet/translations/translations.qrc ${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
 
     qt_add_executable(${PROJECT_NAME}
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
         ${CMAKE_CURRENT_BINARY_DIR}/translations.qrc
         ${QM_FILES}
+        ${ASSET_FILES}
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET Toncoin-Wallet-Desktop APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
@@ -46,12 +55,14 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
 else()
     qt5_create_translation(QM_FILES ${CMAKE_CURRENT_BINARY_DIR} ${TS_FILES})
     configure_file(toncoin_wallet/translations/translations.qrc ${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
+    configure_file(toncoin_wallet/assets/assets.qrc ${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
 
     if(ANDROID)
         add_library(${PROJECT_NAME} SHARED
             ${PROJECT_SOURCES}
             ${CMAKE_CURRENT_BINARY_DIR}/translations.qrc
             ${QM_FILES}
+            ${ASSET_FILES}
         )
 # Define properties for Android with Qt 5 after find_package() calls as:
 #    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
@@ -60,6 +71,7 @@ else()
             ${PROJECT_SOURCES}
             ${CMAKE_CURRENT_BINARY_DIR}/translations.qrc
             ${QM_FILES}
+            ${ASSET_FILES}
         )
     endif()
 endif()

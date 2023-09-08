@@ -23,6 +23,7 @@ class MyButton : public QPushButton, public MyStyledWidget {
 
   private:
     Type buttonType;
+    void updateStyledButton();
 };
 } // namespace UIComponents
 

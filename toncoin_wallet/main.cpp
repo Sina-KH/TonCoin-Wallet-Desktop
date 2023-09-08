@@ -1,12 +1,14 @@
 #include "my_window.h"
 
 #include <QApplication>
+#include <QFontDatabase>
 #include <QTranslator>
 
 int main(int argc, char *argv[]) {
-    Q_INIT_RESOURCE(translations);
-
     QApplication app(argc, argv);
+
+    // Register Inter.ttf font
+    QFontDatabase::addApplicationFont(":/Inter.ttf");
 
     // Load the translator
     QTranslator translator;

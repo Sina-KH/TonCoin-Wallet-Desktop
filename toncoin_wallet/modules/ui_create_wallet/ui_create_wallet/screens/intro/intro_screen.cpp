@@ -15,16 +15,14 @@
 namespace UICreateWallet {
 UICreateWallet::IntroScreen::IntroScreen(QWidget *parent) : QWidget(parent) {
     auto *title = new UIComponents::MyLabel(this, tr("intro.title"));
-    auto titleFont = QFont();
+    auto titleFont = QFont("Inter");
     titleFont.setWeight(QFont::Weight::DemiBold);
     titleFont.setPointSize(23);
     title->setFont(titleFont);
     title->setAlignment(Qt::AlignCenter);
 
     auto *subTitle = new UIComponents::MyLabel(this, tr("intro.description"));
-    subTitle->setStyleSheet(
-        "QLabel { padding-left: 24px; padding-right: 24px; }");
-    auto subFont = QFont();
+    auto subFont = QFont("Inter");
     subFont.setWeight(QFont::Weight::Normal);
     subFont.setPointSize(15);
     subTitle->setFont(subFont);
@@ -34,6 +32,7 @@ UICreateWallet::IntroScreen::IntroScreen(QWidget *parent) : QWidget(parent) {
         this, tr("intro.createWallet"), tr("intro.importWallet"));
 
     auto *layout = new QVBoxLayout(this);
+    layout->setContentsMargins(24, 0, 24, 0);
     layout->addSpacerItem(
         new QSpacerItem(0, 0, QSizePolicy::Minimum, QSizePolicy::Expanding));
     layout->addWidget(title);

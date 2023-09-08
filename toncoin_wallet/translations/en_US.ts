@@ -14,12 +14,12 @@
         <translation>TON Wallet allows you to make fast and secure blockchain-based payments without intermediaries.</translation>
     </message>
     <message>
-        <location filename="../modules/ui_create_wallet/ui_create_wallet/screens/intro/intro_screen.cpp" line="34"/>
+        <location filename="../modules/ui_create_wallet/ui_create_wallet/screens/intro/intro_screen.cpp" line="32"/>
         <source>intro.createWallet</source>
         <translation>Create my wallet</translation>
     </message>
     <message>
-        <location filename="../modules/ui_create_wallet/ui_create_wallet/screens/intro/intro_screen.cpp" line="34"/>
+        <location filename="../modules/ui_create_wallet/ui_create_wallet/screens/intro/intro_screen.cpp" line="32"/>
         <source>intro.importWallet</source>
         <translation>Import existing wallet</translation>
     </message>
