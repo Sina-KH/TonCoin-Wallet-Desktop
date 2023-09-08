@@ -9,21 +9,19 @@
 
 namespace UIComponents {
 
-class MyButton : public QPushButton {
+class MyButton : public QPushButton
+{
     Q_OBJECT
 
-    enum Type {
-        Primary,
-        Secondary
-    };
+    enum Type { Primary, Secondary };
 
-    public:
+public:
     MyButton(QWidget *parent = nullptr, QString title = "", Type buttonType = Type::Primary);
 
-    signals:
+signals:
 
-    public slots:
-    };
-}
+public slots:
+};
+} // namespace UIComponents
 
-#endif //TONCOIN_WALLET_DESKTOP_MYBUTTON_H
+#endif // TONCOIN_WALLET_DESKTOP_MYBUTTON_H

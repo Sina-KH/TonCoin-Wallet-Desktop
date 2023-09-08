@@ -5,7 +5,8 @@
 
 namespace UIComponents {
 // All colors used in all the themes
-class MyColors {
+class MyColors
+{
 public:
     static const QString primary;
     static const QString primaryDark;
@@ -13,6 +14,6 @@ public:
 
 const QString MyColors::primary = "#339CEC";
 const QString MyColors::primaryDark = "#2899E0"; // TODO:: update
-}
+} // namespace UIComponents
 
 #endif // MYCOLORS_H

@@ -11,7 +11,7 @@ namespace UICreateWallet {
 
     class IntroScreen : public QWidget
     {
-        Q_OBJECT
+      Q_OBJECT
 
     public:
         IntroScreen(QWidget *parent = nullptr);

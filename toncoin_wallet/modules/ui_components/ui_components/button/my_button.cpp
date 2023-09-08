@@ -8,29 +8,37 @@
 #include <ui_components/theme/my_theme_manager.cpp>
 
 QString primaryStyleLight = "QPushButton {"
-                           "    background-color: " + UIComponents::MyColors::primary + ";"
-                                                                          "    color: white;"
-                                                                          "    border-radius: 6px;"
-                                                                          "    padding: 12px 20px;"
-                                                                          "}"
-                                                                          "QPushButton:hover {"
-                                                                          "    background-color: " + UIComponents::MyColors::primaryDark + ";"
-                                                                          "}";
+                            "    background-color: "
+                            + UIComponents::MyColors::primary
+                            + ";"
+                              "    color: white;"
+                              "    border-radius: 6px;"
+                              "    padding: 12px 20px;"
+                              "}"
+                              "QPushButton:hover {"
+                              "    background-color: "
+                            + UIComponents::MyColors::primaryDark
+                            + ";"
+                              "}";
 
 QString primaryStyleDark = "QPushButton {"
-                       "    background-color: " + UIComponents::MyColors::primary + ";"
-                       "    color: white;"
-                       "    border-radius: 6px;"
-                       "    padding: 12px 20px;"
-                       "}"
-                       "QPushButton:hover {"
-                           "    background-color: " + UIComponents::MyColors::primaryDark + ";"
-                       "}";
+                           "    background-color: " +
+                           UIComponents::MyColors::primary +
+                           ";"
+                           "    color: white;"
+                           "    border-radius: 6px;"
+                           "    padding: 12px 20px;"
+                           "}"
+                           "QPushButton:hover {"
+                           "    background-color: " +
+                           UIComponents::MyColors::primaryDark +
+                           ";"
+                           "}";
 
-MyStyleSheet primaryStyleSheet = MyStyleSheet {primaryStyleLight, primaryStyleDark};
+MyStyleSheet primaryStyleSheet = MyStyleSheet{primaryStyleLight, primaryStyleDark};
 
 UIComponents::MyButton::MyButton(QWidget *parent, QString title, Type buttonType)
-        : QPushButton(parent)
+    : QPushButton(parent)
 {
     setFixedHeight(42);
     setFixedHeight(160);

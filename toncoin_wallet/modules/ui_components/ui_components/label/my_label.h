@@ -8,16 +8,17 @@
 #include <QLabel>
 
 namespace UIComponents {
-    class MyLabel : public QLabel {
+class MyLabel : public QLabel
+{
     Q_OBJECT
 
-    public:
-        MyLabel(QWidget *parent = nullptr, QString title = "");
+public:
+    MyLabel(QWidget *parent = nullptr, QString title = "");
 
-    signals:
+signals:
 
-    public slots:
-    };
-}
+public slots:
+};
+} // namespace UIComponents
 
-#endif //TONCOIN_WALLET_DESKTOP_MYLABEL_H
+#endif // TONCOIN_WALLET_DESKTOP_MYLABEL_H
