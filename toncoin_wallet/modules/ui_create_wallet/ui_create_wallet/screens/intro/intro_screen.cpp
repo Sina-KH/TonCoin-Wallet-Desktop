@@ -5,27 +5,48 @@
 #include "intro_screen.h"
 
 #include "QLabel"
+#include "QSpacerItem"
 #include "QVBoxLayout"
 
+#include <ui_components/button/my_bottom_actions.h>
 #include <ui_components/button/my_button.h>
 #include <ui_components/label/my_label.h>
 
 namespace UICreateWallet {
 UICreateWallet::IntroScreen::IntroScreen(QWidget *parent) : QWidget(parent) {
     auto *title = new UIComponents::MyLabel(this, tr("intro.title"));
+    auto titleFont = QFont();
+    titleFont.setWeight(QFont::Weight::DemiBold);
+    titleFont.setPointSize(23);
+    title->setFont(titleFont);
     title->setAlignment(Qt::AlignCenter);
 
     auto *subTitle = new UIComponents::MyLabel(this, tr("intro.description"));
+    subTitle->setStyleSheet(
+        "QLabel { padding-left: 24px; padding-right: 24px; }");
+    auto subFont = QFont();
+    subFont.setWeight(QFont::Weight::Normal);
+    subFont.setPointSize(15);
+    subTitle->setFont(subFont);
     subTitle->setAlignment(Qt::AlignCenter);
 
-    auto *nextButton = new UIComponents::MyButton(this, tr("intro.hi"));
+    auto *bottomActions = new UIComponents::MyBottomActions(
+        this, tr("intro.createWallet"), tr("intro.importWallet"));
 
     auto *layout = new QVBoxLayout(this);
+    layout->addSpacerItem(
+        new QSpacerItem(0, 0, QSizePolicy::Minimum, QSizePolicy::Expanding));
     layout->addWidget(title);
     layout->addWidget(subTitle);
-    layout->addWidget(nextButton);
-    layout->addStretch(); // Add some space at the bottom
+    layout->addSpacerItem(
+        new QSpacerItem(0, 0, QSizePolicy::Minimum, QSizePolicy::Expanding));
+    layout->addWidget(bottomActions);
 
     setLayout(layout);
 }
+
+void UICreateWallet::IntroScreen::updateStyledTheme() {
+    UIComponents::MyStyledWidget::updateStyledTheme();
+}
+
 } // namespace UICreateWallet

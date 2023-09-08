@@ -5,7 +5,7 @@
 #include "my_button.h"
 #include "ui_components/theme/my_style_sheet.h"
 #include <ui_components/color/my_colors.h>
-#include <ui_components/theme/my_theme_manager.cpp>
+#include <ui_components/theme/my_theme_manager.h>
 
 QString primaryStyleLight = "QPushButton {"
                             "    background-color: " +
@@ -13,7 +13,6 @@ QString primaryStyleLight = "QPushButton {"
                             ";"
                             "    color: white;"
                             "    border-radius: 6px;"
-                            "    padding: 12px 20px;"
                             "}"
                             "QPushButton:hover {"
                             "    background-color: " +
@@ -38,18 +37,38 @@ QString primaryStyleDark = "QPushButton {"
 MyStyleSheet primaryStyleSheet =
     MyStyleSheet{primaryStyleLight, primaryStyleDark};
 
+QString secondaryStyle = "QPushButton {"
+                         "    background-color: rgba(0, 0, 0, 0);"
+                         "    color:" +
+                         UIComponents::MyColors::primaryDark +
+                         ";"
+                         "    border-radius: 6px;"
+                         "}";
+
+MyStyleSheet secondaryStyleSheet = MyStyleSheet{secondaryStyle};
+
 UIComponents::MyButton::MyButton(QWidget *parent, QString title,
                                  Type buttonType)
     : QPushButton(parent) {
-    setFixedHeight(42);
-    setFixedHeight(160);
+    this->buttonType = buttonType;
+
+    setMinimumHeight(42);
+    setMinimumWidth(160);
     setText(title);
+
+    updateStyledTheme();
+}
+
+void UIComponents::MyButton::updateStyledTheme() {
     switch (buttonType) {
     case Type::Primary:
-        setStyleSheet(ThemeManager::getInstance().getCurrentStylesheet(
+        setStyleSheet(MyThemeManager::getInstance().getCurrentStylesheet(
             primaryStyleSheet));
         break;
     case Type::Secondary:
+        setStyleSheet(MyThemeManager::getInstance().getCurrentStylesheet(
+            secondaryStyleSheet));
         break;
     }
+    UIComponents::MyStyledWidget::updateStyledTheme();
 }

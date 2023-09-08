@@ -9,14 +9,19 @@
         <translation>TON Wallet</translation>
     </message>
     <message>
-        <location filename="../modules/ui_create_wallet/ui_create_wallet/screens/intro/intro_screen.cpp" line="20"/>
+        <location filename="../modules/ui_create_wallet/ui_create_wallet/screens/intro/intro_screen.cpp" line="24"/>
         <source>intro.description</source>
         <translation>TON Wallet allows you to make fast and secure blockchain-based payments without intermediaries.</translation>
     </message>
     <message>
-        <location filename="../modules/ui_create_wallet/ui_create_wallet/screens/intro/intro_screen.cpp" line="23"/>
-        <source>intro.hi</source>
-        <translation>Hi</translation>
+        <location filename="../modules/ui_create_wallet/ui_create_wallet/screens/intro/intro_screen.cpp" line="34"/>
+        <source>intro.createWallet</source>
+        <translation>Create my wallet</translation>
+    </message>
+    <message>
+        <location filename="../modules/ui_create_wallet/ui_create_wallet/screens/intro/intro_screen.cpp" line="34"/>
+        <source>intro.importWallet</source>
+        <translation>Import existing wallet</translation>
     </message>
 </context>
 </TS>

@@ -12,7 +12,7 @@ class MyColors {
 };
 
 const QString MyColors::primary = "#339CEC";
-const QString MyColors::primaryDark = "#2899E0"; // TODO:: update
+const QString MyColors::primaryDark = "#1A81CF"; // TODO:: update
 } // namespace UIComponents
 
 #endif // MYCOLORS_H

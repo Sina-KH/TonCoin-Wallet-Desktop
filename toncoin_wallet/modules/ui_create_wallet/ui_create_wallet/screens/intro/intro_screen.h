@@ -7,14 +7,16 @@
 
 #include "QWidget"
 
+#include <ui_components/theme/my_styled_widget.h>
+
 namespace UICreateWallet {
 
-class IntroScreen : public QWidget {
+class IntroScreen : public QWidget, public UIComponents::MyStyledWidget {
     Q_OBJECT
 
   public:
     IntroScreen(QWidget *parent = nullptr);
-
+    void updateStyledTheme() override;
   private slots:
 };
 

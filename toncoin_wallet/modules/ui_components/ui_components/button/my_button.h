@@ -7,20 +7,22 @@
 
 #include <QPushButton>
 
+#include <ui_components/theme/my_styled_widget.h>
+
 namespace UIComponents {
 
-class MyButton : public QPushButton {
+class MyButton : public QPushButton, public MyStyledWidget {
     Q_OBJECT
 
+  public:
     enum Type { Primary, Secondary };
 
-  public:
     MyButton(QWidget *parent = nullptr, QString title = "",
              Type buttonType = Type::Primary);
+    void updateStyledTheme() override;
 
-  signals:
-
-  public slots:
+  private:
+    Type buttonType;
 };
 } // namespace UIComponents
 

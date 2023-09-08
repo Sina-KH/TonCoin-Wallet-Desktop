@@ -9,6 +9,8 @@ add_library(UIComponents
     ui_components/theme/my_theme_manager.h
     ui_components/theme/my_theme_manager.cpp
     ui_components/theme/my_style_sheet.h
+    ui_components/theme/my_styled_widget.h ui_components/theme/my_styled_widget.cpp
+    ui_components/button/my_bottom_actions.h ui_components/button/my_bottom_actions.cpp
 )
 
 target_include_directories(UIComponents PUBLIC .)
