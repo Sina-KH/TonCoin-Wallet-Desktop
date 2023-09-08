@@ -21,8 +21,8 @@ set(TS_FILES
 
 set(PROJECT_SOURCES
         src/main.cpp
-        src/mywindow.cpp
-        src/mywindow.h
+        src/MyWindow.cpp
+        src/MyWindow.h
 )
 
 # Add SubModules
