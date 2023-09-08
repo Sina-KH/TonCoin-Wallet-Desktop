@@ -2,10 +2,10 @@
 // Created by Sina KH on 9/7/23.
 //
 
-#include "MyButton.h"
-#include "UIComponents/theme/MyStyleSheet.h"
-#include <UIComponents/color/MyColors.h>
-#include <UIComponents/theme/MyThemeManager.cpp>
+#include "my_button.h"
+#include "ui_components/theme/my_style_sheet.h"
+#include <ui_components/color/my_colors.h>
+#include <ui_components/theme/my_theme_manager.cpp>
 
 QString primaryStyleLight = "QPushButton {"
                            "    background-color: " + UIComponents::MyColors::primary + ";"

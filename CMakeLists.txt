@@ -16,22 +16,22 @@ set(PROJECT_NAME Toncoin-Wallet-Desktop)
 
 # Multi-language .ts files
 set(TS_FILES
-        src/Translations/en_US.ts
+        toncoin_wallet/translations/en_US.ts
 )
 
 set(PROJECT_SOURCES
-        src/Main.cpp
-        src/MyWindow.cpp
-        src/MyWindow.h
+        toncoin_wallet/main.cpp
+        toncoin_wallet/my_window.cpp
+        toncoin_wallet/my_window.h
 )
 
 # Add SubModules
-add_subdirectory(src/Modules/UIComponents)
-add_subdirectory(src/Modules/UICreateWallet)
+add_subdirectory(toncoin_wallet/modules/ui_components)
+add_subdirectory(toncoin_wallet/modules/ui_create_wallet)
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_create_translation(QM_FILES ${CMAKE_CURRENT_SOURCE_DIR} ${TS_FILES})
-    configure_file(src/Translations/translations.qrc ${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
+    configure_file(toncoin_wallet/Translations/translations.qrc ${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
 
     qt_add_executable(${PROJECT_NAME}
         MANUAL_FINALIZATION
@@ -45,7 +45,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
 # For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
 else()
     qt5_create_translation(QM_FILES ${CMAKE_CURRENT_BINARY_DIR} ${TS_FILES})
-    configure_file(Toncoin-Wallet/Translations/translations.qrc ${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
+    configure_file(toncoin_wallet/translations/translations.qrc ${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
 
     if(ANDROID)
         add_library(${PROJECT_NAME} SHARED

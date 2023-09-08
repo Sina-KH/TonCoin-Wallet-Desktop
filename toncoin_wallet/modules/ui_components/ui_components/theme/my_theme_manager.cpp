@@ -1,5 +1,5 @@
-#include "MyStyleSheet.h"
-#include "MyThemeManager.h"
+#include "my_style_sheet.h"
+#include "my_theme_manager.h"
 
 #include <QString>
 

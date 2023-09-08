@@ -2,13 +2,13 @@
 // Created by Sina KH on 9/7/23.
 //
 
-#include "IntroScreen.h"
+#include "intro_screen.h"
 
 #include "QLabel"
 #include "QVBoxLayout"
 
-#include <UIComponents/button/MyButton.h>
-#include <UIComponents/label/MyLabel.h>
+#include <ui_components/label/my_label.h>
+#include <ui_components/button/my_button.h>
 
 namespace UICreateWallet {
     UICreateWallet::IntroScreen::IntroScreen(QWidget *parent)

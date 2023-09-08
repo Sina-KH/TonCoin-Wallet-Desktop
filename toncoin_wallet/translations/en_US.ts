@@ -4,17 +4,17 @@
 <context>
     <name>UICreateWallet::IntroScreen</name>
     <message>
-        <location filename="../Modules/UICreateWallet/UICreateWallet/Screens/IntroScreen/IntroScreen.cpp" line="17"/>
+        <location filename="../modules/ui_create_wallet/ui_create_wallet/screens/intro/intro_screen.cpp" line="17"/>
         <source>intro.title</source>
         <translation>TON Wallet</translation>
     </message>
     <message>
-        <location filename="../Modules/UICreateWallet/UICreateWallet/Screens/IntroScreen/IntroScreen.cpp" line="20"/>
+        <location filename="../modules/ui_create_wallet/ui_create_wallet/screens/intro/intro_screen.cpp" line="20"/>
         <source>intro.description</source>
         <translation>TON Wallet allows you to make fast and secure blockchain-based payments without intermediaries.</translation>
     </message>
     <message>
-        <location filename="../Modules/UICreateWallet/UICreateWallet/Screens/IntroScreen/IntroScreen.cpp" line="23"/>
+        <location filename="../modules/ui_create_wallet/ui_create_wallet/screens/intro/intro_screen.cpp" line="23"/>
         <source>intro.hi</source>
         <translation>Hi</translation>
     </message>

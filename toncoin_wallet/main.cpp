@@ -1,4 +1,4 @@
-#include "MyWindow.h"
+#include "my_window.h"
 
 #include <QApplication>
 #include <QTranslator>

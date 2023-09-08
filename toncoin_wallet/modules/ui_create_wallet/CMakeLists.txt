@@ -1,10 +1,9 @@
 project(UICreateWallet)
 
-set(SUBMODULE_SOURCES
-        UICreateWallet/Screens/IntroScreen/IntroScreen.h
-        UICreateWallet/Screens/IntroScreen/IntroScreen.cpp
+add_library(UICreateWallet
+    ui_create_wallet/screens/intro/intro_screen.h
+    ui_create_wallet/screens/intro/intro_screen.cpp
 )
-add_library(UICreateWallet ${SUBMODULE_SOURCES})
 
 target_include_directories(UICreateWallet PUBLIC .)
 
