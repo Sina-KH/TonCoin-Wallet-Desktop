@@ -5,19 +5,18 @@
 
 // Hold current selected theme and return style based on current theme.
 class ThemeManager {
-public:
-    static ThemeManager& getInstance() {
+  public:
+    static ThemeManager &getInstance() {
         static ThemeManager instance;
         return instance;
     }
 
-    QString getCurrentTheme() const {
-        return currentTheme;
-    }
+    QString getCurrentTheme() const { return currentTheme; }
 
-    void setCurrentTheme(const QString& theme) {
+    void setCurrentTheme(const QString &theme) {
         currentTheme = theme;
-        // You can emit a signal here to notify other parts of the application about the theme change.
+        // You can emit a signal here to notify other parts of the application
+        // about the theme change.
     }
 
     QString getCurrentStylesheet(MyStyleSheet stylesheet) const {
@@ -26,7 +25,7 @@ public:
         return stylesheet.light;
     }
 
-private:
-    ThemeManager() {}  // Private constructor to enforce singleton pattern
+  private:
+    ThemeManager() {} // Private constructor to enforce singleton pattern
     QString currentTheme;
 };

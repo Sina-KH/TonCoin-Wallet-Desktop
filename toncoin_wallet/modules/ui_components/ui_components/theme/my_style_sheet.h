@@ -4,9 +4,8 @@
 #include <QString>
 
 // Stylesheet struct to use for styling each component for different themes
-struct MyStyleSheet
-{
-public:
+struct MyStyleSheet {
+  public:
     QString light;
     QString dark;
 };

@@ -3,11 +3,10 @@
 
 #include <QMainWindow>
 
-class MyWindow : public QMainWindow
-{
+class MyWindow : public QMainWindow {
     Q_OBJECT
 
-public:
+  public:
     MyWindow(QWidget *parent = nullptr);
     ~MyWindow();
 };

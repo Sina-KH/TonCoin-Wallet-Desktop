@@ -8,16 +8,15 @@
 #include <QLabel>
 
 namespace UIComponents {
-class MyLabel : public QLabel
-{
+class MyLabel : public QLabel {
     Q_OBJECT
 
-public:
+  public:
     MyLabel(QWidget *parent = nullptr, QString title = "");
 
-signals:
+  signals:
 
-public slots:
+  public slots:
 };
 } // namespace UIComponents
 

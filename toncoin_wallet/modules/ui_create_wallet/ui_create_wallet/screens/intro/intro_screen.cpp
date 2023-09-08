@@ -7,25 +7,25 @@
 #include "QLabel"
 #include "QVBoxLayout"
 
-#include <ui_components/label/my_label.h>
 #include <ui_components/button/my_button.h>
+#include <ui_components/label/my_label.h>
 
 namespace UICreateWallet {
 UICreateWallet::IntroScreen::IntroScreen(QWidget *parent) : QWidget(parent) {
-  auto *title = new UIComponents::MyLabel(this, tr("intro.title"));
-  title->setAlignment(Qt::AlignCenter);
+    auto *title = new UIComponents::MyLabel(this, tr("intro.title"));
+    title->setAlignment(Qt::AlignCenter);
 
-  auto *subTitle = new UIComponents::MyLabel(this, tr("intro.description"));
-  subTitle->setAlignment(Qt::AlignCenter);
+    auto *subTitle = new UIComponents::MyLabel(this, tr("intro.description"));
+    subTitle->setAlignment(Qt::AlignCenter);
 
-  auto *nextButton = new UIComponents::MyButton(this, tr("intro.hi"));
+    auto *nextButton = new UIComponents::MyButton(this, tr("intro.hi"));
 
-  auto *layout = new QVBoxLayout(this);
-  layout->addWidget(title);
-  layout->addWidget(subTitle);
-  layout->addWidget(nextButton);
-  layout->addStretch(); // Add some space at the bottom
+    auto *layout = new QVBoxLayout(this);
+    layout->addWidget(title);
+    layout->addWidget(subTitle);
+    layout->addWidget(nextButton);
+    layout->addStretch(); // Add some space at the bottom
 
-  setLayout(layout);
+    setLayout(layout);
 }
-} // UICreateWallet
+} // namespace UICreateWallet

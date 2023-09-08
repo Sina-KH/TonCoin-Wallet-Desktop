@@ -9,16 +9,15 @@
 
 namespace UICreateWallet {
 
-    class IntroScreen : public QWidget
-    {
-      Q_OBJECT
+class IntroScreen : public QWidget {
+    Q_OBJECT
 
-    public:
-        IntroScreen(QWidget *parent = nullptr);
+  public:
+    IntroScreen(QWidget *parent = nullptr);
 
-    private slots:
-    };
+  private slots:
+};
 
-} // UICreateWallet
+} // namespace UICreateWallet
 
-#endif //TONCOIN_WALLET_DESKTOP_INTROSCREEN_H
+#endif // TONCOIN_WALLET_DESKTOP_INTROSCREEN_H

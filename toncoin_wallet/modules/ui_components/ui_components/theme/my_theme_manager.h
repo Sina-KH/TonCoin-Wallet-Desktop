@@ -1,10 +1,8 @@
 #ifndef MYTHEMEMANAGER_H
 #define MYTHEMEMANAGER_H
 
-
-class MyThemeManager
-{
-public:
+class MyThemeManager {
+  public:
     MyThemeManager();
 };
 

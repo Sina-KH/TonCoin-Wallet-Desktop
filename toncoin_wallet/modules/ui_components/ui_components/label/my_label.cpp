@@ -5,8 +5,7 @@
 #include "my_label.h"
 
 UIComponents::MyLabel::MyLabel(QWidget *parent, QString title)
-    : QLabel(parent)
-{
+    : QLabel(parent) {
     setText(title);
     setWordWrap(true);
 }
