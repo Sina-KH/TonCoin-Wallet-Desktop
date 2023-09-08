@@ -8,11 +8,17 @@
 #include <QPushButton>
 
 namespace UIComponents {
-    class MyButton : public QPushButton {
+
+class MyButton : public QPushButton {
     Q_OBJECT
 
+    enum Type {
+        Primary,
+        Secondary
+    };
+
     public:
-        MyButton(QWidget *parent = nullptr, QString title = "");
+    MyButton(QWidget *parent = nullptr, QString title = "", Type buttonType = Type::Primary);
 
     signals:
 
