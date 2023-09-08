@@ -1,8 +1,8 @@
 #include "mywindow.h"
-#include "modules/UICreateWallet/screens/IntroScreen/IntroScreen.h"
 
 #include <QStackedWidget>
 #include <QVBoxLayout>
+#include <UICreateWallet/screens/IntroScreen/IntroScreen.h>
 
 MyWindow::MyWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -21,4 +21,3 @@ MyWindow::MyWindow(QWidget *parent)
 MyWindow::~MyWindow()
 {
 }
-

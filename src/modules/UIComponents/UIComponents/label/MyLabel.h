@@ -12,7 +12,7 @@ namespace UIComponents {
     Q_OBJECT
 
     public:
-        MyLabel(QWidget *parent = nullptr);
+        MyLabel(QWidget *parent = nullptr, QString title = "");
 
     signals:
 

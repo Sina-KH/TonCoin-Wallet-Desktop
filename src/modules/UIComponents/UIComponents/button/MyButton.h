@@ -12,7 +12,7 @@ namespace UIComponents {
     Q_OBJECT
 
     public:
-        MyButton(QWidget *parent = nullptr);
+        MyButton(QWidget *parent = nullptr, QString title = "");
 
     signals:
 
