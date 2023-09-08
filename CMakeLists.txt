@@ -20,14 +20,14 @@ set(TS_FILES
 )
 
 set(PROJECT_SOURCES
-        src/main.cpp
+        src/Main.cpp
         src/MyWindow.cpp
         src/MyWindow.h
 )
 
 # Add SubModules
-add_subdirectory(src/modules/UIComponents)
-add_subdirectory(src/modules/UICreateWallet)
+add_subdirectory(src/Modules/UIComponents)
+add_subdirectory(src/Modules/UICreateWallet)
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_create_translation(QM_FILES ${CMAKE_CURRENT_SOURCE_DIR} ${TS_FILES})

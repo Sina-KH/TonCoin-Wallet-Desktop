@@ -1,8 +1,8 @@
 project(UICreateWallet)
 
 set(SUBMODULE_SOURCES
-        UICreateWallet/screens/IntroScreen/IntroScreen.h
-        UICreateWallet/screens/IntroScreen/IntroScreen.cpp
+        UICreateWallet/Screens/IntroScreen/IntroScreen.h
+        UICreateWallet/Screens/IntroScreen/IntroScreen.cpp
 )
 add_library(UICreateWallet ${SUBMODULE_SOURCES})
 
