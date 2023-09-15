@@ -12,6 +12,8 @@ add_library(UIComponents
     ui_components/theme/my_styled_widget.h ui_components/theme/my_styled_widget.cpp
     ui_components/button/my_bottom_actions.h ui_components/button/my_bottom_actions.cpp
     ui_components/animation/my_animation.h ui_components/animation/my_animation.cpp
+    ui_components/navigator/my_navigator.h ui_components/navigator/my_navigator.cpp
+    ui_components/screen/my_screen.h ui_components/screen/my_screen.cpp
 )
 
 target_include_directories(UIComponents PUBLIC .)

@@ -1,7 +1,6 @@
 #include "my_window.h"
 
 #include <QStackedWidget>
-#include <QVBoxLayout>
 #include <qapplication.h>
 #include <ui_create_wallet/screens/intro/intro_screen.h>
 
@@ -11,8 +10,11 @@ MyWindow::MyWindow(QWidget *parent)
 
     auto *stackedWidget = new QStackedWidget(this);
 
+    // navigator handles screen navigations!
+    auto *navigator = new UIComponents::MyNavigator(this, stackedWidget);
+
     // Intro Screen
-    auto *introScreen = new UICreateWallet::IntroScreen(this);
+    auto *introScreen = new UICreateWallet::IntroScreen(this, navigator);
     stackedWidget->addWidget(introScreen);
 
     setCentralWidget(stackedWidget);

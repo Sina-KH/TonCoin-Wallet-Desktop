@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.13)
 
-project(Toncoin-Wallet-Desktop VERSION 0.0.15 LANGUAGES CXX)
+project(Toncoin-Wallet-Desktop VERSION 0.0.16 LANGUAGES CXX)
 
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
@@ -37,10 +37,12 @@ add_subdirectory(toncoin_wallet/modules/ui_create_wallet)
 configure_file(toncoin_wallet/assets/assets.qrc ${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
 configure_file(toncoin_wallet/assets/fonts/Inter.ttf ${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
 configure_file(toncoin_wallet/assets/animations/Start.json ${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
+configure_file(toncoin_wallet/assets/animations/Congratulations.json ${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
 set(ASSET_FILES
     ${CMAKE_CURRENT_BINARY_DIR}/assets.qrc
     ${CMAKE_CURRENT_BINARY_DIR}/Inter.ttf
     ${CMAKE_CURRENT_BINARY_DIR}/Start.json
+    ${CMAKE_CURRENT_BINARY_DIR}/Congratulations.json
 )
 
 qt_create_translation(QM_FILES ${CMAKE_CURRENT_SOURCE_DIR} ${TS_FILES})

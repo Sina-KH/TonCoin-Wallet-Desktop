@@ -7,9 +7,14 @@ namespace UIComponents {
 class MyBottomActions : public QWidget {
     Q_OBJECT
   public:
-    explicit MyBottomActions(QWidget *parent = nullptr,
-                             QString primaryText = "",
-                             QString secondaryText = "");
+    struct Action {
+        QString text;
+        QObject *pressReceiver;
+        const char *pressSlot;
+    };
+
+    MyBottomActions(QWidget *parent = nullptr, Action primaryAction = {},
+                    Action secondaryAction = {});
 
   signals:
 };

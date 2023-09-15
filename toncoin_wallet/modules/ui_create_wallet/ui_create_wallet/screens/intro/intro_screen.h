@@ -9,15 +9,22 @@
 
 #include <ui_components/theme/my_styled_widget.h>
 
+#include <ui_components/screen/my_screen.h>
+
 namespace UICreateWallet {
 
-class IntroScreen : public QWidget, public UIComponents::MyStyledWidget {
+class IntroScreen : public UIComponents::MyScreen,
+                    public UIComponents::MyStyledWidget {
     Q_OBJECT
 
   public:
-    IntroScreen(QWidget *parent = nullptr);
+    IntroScreen(QWidget *parent = nullptr,
+                UIComponents::MyNavigator *navigator = nullptr);
     void updateStyledTheme() override;
+
+  private:
   private slots:
+    void newWalletPressed();
 };
 
 } // namespace UICreateWallet

@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>Inter.ttf</file>
         <file>Start.json</file>
+	   <file>Congratulations.json</file>
     </qresource>
 </RCC>
