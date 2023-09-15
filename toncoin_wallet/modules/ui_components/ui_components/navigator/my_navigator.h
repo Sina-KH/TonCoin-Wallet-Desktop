@@ -1,23 +1,20 @@
 #ifndef MYNAVIGATOR_H
 #define MYNAVIGATOR_H
 
-#include <QObject>
 #include <QStackedWidget>
+#include <QWidget>
 
 namespace UIComponents {
-class MyNavigator : public QObject
-{
+class MyNavigator : public QStackedWidget {
     Q_OBJECT
   public:
-    explicit MyNavigator(QObject *parent = nullptr, QStackedWidget *stackedWidget = nullptr);
+    explicit MyNavigator(QWidget *parent = nullptr);
 
     void pushScreen(QWidget *screen);
 
   private:
-    QStackedWidget *stackedWidget;
   signals:
-
 };
-}
+} // namespace UIComponents
 
 #endif // MYNAVIGATOR_H

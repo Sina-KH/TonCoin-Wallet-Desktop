@@ -8,16 +8,14 @@ MyWindow::MyWindow(QWidget *parent)
     : QMainWindow(parent), UIComponents::MyStyledWidget() {
     resize(360, 720);
 
-    auto *stackedWidget = new QStackedWidget(this);
-
     // navigator handles screen navigations!
-    auto *navigator = new UIComponents::MyNavigator(this, stackedWidget);
+    auto *navigator = new UIComponents::MyNavigator(this);
 
     // Intro Screen
     auto *introScreen = new UICreateWallet::IntroScreen(this, navigator);
-    stackedWidget->addWidget(introScreen);
+    navigator->pushScreen(introScreen);
 
-    setCentralWidget(stackedWidget);
+    setCentralWidget(navigator);
 
     setTheme(UIComponents::ThemeName::light);
 }

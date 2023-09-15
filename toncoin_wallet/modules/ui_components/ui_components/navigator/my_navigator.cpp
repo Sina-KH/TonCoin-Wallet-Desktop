@@ -1,12 +1,9 @@
 #include "my_navigator.h"
 
-UIComponents::MyNavigator::MyNavigator(QObject *parent, QStackedWidget *stackedWidget)
-    : QObject{parent}
-{
-    this->stackedWidget = stackedWidget;
-}
+UIComponents::MyNavigator::MyNavigator(QWidget *parent)
+    : QStackedWidget{parent} {}
 
 void UIComponents::MyNavigator::pushScreen(QWidget *screen) {
-    this->stackedWidget->addWidget(screen);
-    this->stackedWidget->setCurrentWidget(screen);
+    this->addWidget(screen);
+    this->setCurrentWidget(screen);
 }

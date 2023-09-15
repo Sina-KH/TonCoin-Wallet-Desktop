@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.13)
 
-project(Toncoin-Wallet-Desktop VERSION 0.0.16 LANGUAGES CXX)
+project(Toncoin-Wallet-Desktop VERSION 0.0.17 LANGUAGES CXX)
 
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
