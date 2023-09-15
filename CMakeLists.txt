@@ -1,6 +1,6 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.13)
 
-project(Toncoin-Wallet-Desktop VERSION 0.0.12 LANGUAGES CXX)
+project(Toncoin-Wallet-Desktop VERSION 0.0.15 LANGUAGES CXX)
 
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
@@ -9,8 +9,9 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets LinguistTools)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets LinguistTools)
+# Find Qt Packages
+find_package(QT NAMES Qt6 REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets LinguistTools Gui)
 
 set(PROJECT_NAME Toncoin-Wallet-Desktop)
 
@@ -19,6 +20,7 @@ set(TS_FILES
         toncoin_wallet/translations/en_US.ts
 )
 
+# Main source files
 set(PROJECT_SOURCES
         toncoin_wallet/main.cpp
         toncoin_wallet/my_window.cpp
@@ -26,68 +28,40 @@ set(PROJECT_SOURCES
 )
 
 # Add SubModules
+add_subdirectory(toncoin_wallet/modules/qtlottie)
+add_subdirectory(toncoin_wallet/modules/rlottie)
 add_subdirectory(toncoin_wallet/modules/ui_components)
 add_subdirectory(toncoin_wallet/modules/ui_create_wallet)
 
 # Assets
 configure_file(toncoin_wallet/assets/assets.qrc ${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
 configure_file(toncoin_wallet/assets/fonts/Inter.ttf ${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
+configure_file(toncoin_wallet/assets/animations/Start.json ${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
 set(ASSET_FILES
     ${CMAKE_CURRENT_BINARY_DIR}/assets.qrc
     ${CMAKE_CURRENT_BINARY_DIR}/Inter.ttf
+    ${CMAKE_CURRENT_BINARY_DIR}/Start.json
 )
 
-if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_create_translation(QM_FILES ${CMAKE_CURRENT_SOURCE_DIR} ${TS_FILES})
-    configure_file(toncoin_wallet/translations/translations.qrc ${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
+qt_create_translation(QM_FILES ${CMAKE_CURRENT_SOURCE_DIR} ${TS_FILES})
+configure_file(toncoin_wallet/translations/translations.qrc ${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
 
-    qt_add_executable(${PROJECT_NAME}
-        MANUAL_FINALIZATION
-        ${PROJECT_SOURCES}
-        ${CMAKE_CURRENT_BINARY_DIR}/translations.qrc
-        ${QM_FILES}
-        ${ASSET_FILES}
-    )
-# Define target properties for Android with Qt 6 as:
-#    set_property(TARGET Toncoin-Wallet-Desktop APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
-#                 ${CMAKE_CURRENT_SOURCE_DIR}/android)
-# For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
-else()
-    qt5_create_translation(QM_FILES ${CMAKE_CURRENT_BINARY_DIR} ${TS_FILES})
-    configure_file(toncoin_wallet/translations/translations.qrc ${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
-    configure_file(toncoin_wallet/assets/assets.qrc ${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
+qt_add_executable(${PROJECT_NAME}
+    MANUAL_FINALIZATION
+    ${PROJECT_SOURCES}
+    ${CMAKE_CURRENT_BINARY_DIR}/translations.qrc
+    ${QM_FILES}
+    ${ASSET_FILES}
+)
 
-    if(ANDROID)
-        add_library(${PROJECT_NAME} SHARED
-            ${PROJECT_SOURCES}
-            ${CMAKE_CURRENT_BINARY_DIR}/translations.qrc
-            ${QM_FILES}
-            ${ASSET_FILES}
-        )
-# Define properties for Android with Qt 5 after find_package() calls as:
-#    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
-    else()
-        add_executable(${PROJECT_NAME}
-            ${PROJECT_SOURCES}
-            ${CMAKE_CURRENT_BINARY_DIR}/translations.qrc
-            ${QM_FILES}
-            ${ASSET_FILES}
-        )
-    endif()
-endif()
-
+# Link to Qt widgets
 target_link_libraries(${PROJECT_NAME} PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 
 # Link SubModules
+target_link_libraries(${PROJECT_NAME} PRIVATE qtlottie)
 target_link_libraries(${PROJECT_NAME} PRIVATE UIComponents)
 target_link_libraries(${PROJECT_NAME} PRIVATE UICreateWallet)
 
-# Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
-# If you are developing for iOS or macOS you should consider setting an
-# explicit, fixed bundle identifier manually though.
-if(${QT_VERSION} VERSION_LESS 6.1.0)
-  set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.Toncoin-Wallet-Desktop)
-endif()
 set_target_properties(Toncoin-Wallet-Desktop PROPERTIES
     ${BUNDLE_ID_OPTION}
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
@@ -103,6 +77,4 @@ install(TARGETS Toncoin-Wallet-Desktop
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
 
-if(QT_VERSION_MAJOR EQUAL 6)
-    qt_finalize_executable(Toncoin-Wallet-Desktop)
-endif()
+qt_finalize_executable(Toncoin-Wallet-Desktop)

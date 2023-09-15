@@ -11,8 +11,10 @@ add_library(UIComponents
     ui_components/theme/my_style_sheet.h
     ui_components/theme/my_styled_widget.h ui_components/theme/my_styled_widget.cpp
     ui_components/button/my_bottom_actions.h ui_components/button/my_bottom_actions.cpp
+    ui_components/animation/my_animation.h ui_components/animation/my_animation.cpp
 )
 
 target_include_directories(UIComponents PUBLIC .)
 
 target_link_libraries(UIComponents PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(UIComponents PRIVATE qtlottie)

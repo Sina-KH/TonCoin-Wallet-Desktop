@@ -8,13 +8,17 @@
 #include "QSpacerItem"
 #include "QVBoxLayout"
 
+#include <ui_components/animation/my_animation.h>
 #include <ui_components/button/my_bottom_actions.h>
 #include <ui_components/button/my_button.h>
 #include <ui_components/label/my_label.h>
 
 namespace UICreateWallet {
 UICreateWallet::IntroScreen::IntroScreen(QWidget *parent) : QWidget(parent) {
-    auto *title = new UIComponents::MyLabel(this, tr("intro.title"));
+    auto animation =
+        new UIComponents::MyAnimation(this, QUrl("qrc:/Start.json"));
+
+    auto title = new UIComponents::MyLabel(this, tr("intro.title"));
     auto titleFont = QFont("Inter");
     titleFont.setWeight(QFont::Weight::DemiBold);
     titleFont.setPointSize(23);
@@ -35,6 +39,7 @@ UICreateWallet::IntroScreen::IntroScreen(QWidget *parent) : QWidget(parent) {
     layout->setContentsMargins(24, 0, 24, 0);
     layout->addSpacerItem(
         new QSpacerItem(0, 0, QSizePolicy::Minimum, QSizePolicy::Expanding));
+    layout->addWidget(animation);
     layout->addWidget(title);
     layout->addWidget(subTitle);
     layout->addSpacerItem(
