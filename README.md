@@ -7,6 +7,8 @@
 
 https://www.youtube.com/playlist?list=PLEdsirgchcFFsUFfLAaCR5kOOHKax-M1A
 
+**I'm not a QT/CPP expert, I'm just trying to challenge myself and learn more and more. So, these videos are not tutorials. Most of them are just trying, searching and testing! :)**
+
 📽️ My Channel:
 
 https://www.youtube.com/@Sina-Dev
