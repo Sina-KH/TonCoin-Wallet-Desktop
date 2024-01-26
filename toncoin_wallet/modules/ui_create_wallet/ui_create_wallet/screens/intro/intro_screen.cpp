@@ -62,7 +62,7 @@ void UICreateWallet::IntroScreen::newWalletPressed() {
     UICreateWallet::CongratulationsScreen *congratulationsScreen =
         new UICreateWallet::CongratulationsScreen(
             this, navigator); // TODO:: Pass this as parent?
-    navigator->pushScreen(congratulationsScreen);
+    navigator->pushScreen(congratulationsScreen, true);
 }
 
 void UICreateWallet::IntroScreen::updateStyledTheme() {

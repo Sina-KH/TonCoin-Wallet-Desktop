@@ -14,6 +14,9 @@ class CongratulationsScreen : public UIComponents::MyScreen {
         UIComponents::MyNavigator *navigator = nullptr);
 
   signals:
+
+  private slots:
+    void proceedPressed();
 };
 } // namespace UICreateWallet
 

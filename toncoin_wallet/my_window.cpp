@@ -13,7 +13,7 @@ MyWindow::MyWindow(QWidget *parent)
 
     // Intro Screen
     auto *introScreen = new UICreateWallet::IntroScreen(this, navigator);
-    navigator->pushScreen(introScreen);
+    navigator->pushScreen(introScreen, false);
 
     setCentralWidget(navigator);
 

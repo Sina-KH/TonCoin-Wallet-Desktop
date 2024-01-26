@@ -31,7 +31,8 @@ UICreateWallet::CongratulationsScreen::CongratulationsScreen(
 
     auto *bottomActions = new UIComponents::MyBottomActions(
         this,
-        UIComponents::MyBottomActions::Action{tr("congratulations.proceed")});
+        UIComponents::MyBottomActions::Action{tr("congratulations.proceed"), this,
+                                              SLOT(proceedPressed())});
 
     auto *layout = new QVBoxLayout(this);
     layout->setContentsMargins(24, 0, 24, 0);
@@ -45,4 +46,7 @@ UICreateWallet::CongratulationsScreen::CongratulationsScreen(
     layout->addWidget(bottomActions);
 
     setLayout(layout);
+}
+
+void UICreateWallet::CongratulationsScreen::proceedPressed() {
 }

@@ -10,9 +10,11 @@ class MyNavigator : public QStackedWidget {
   public:
     explicit MyNavigator(QWidget *parent = nullptr);
 
-    void pushScreen(QWidget *screen);
+    void pushScreen(QWidget *screen, bool animated);
+    void popScreen(bool animated);
 
   private:
+    bool isAnimating = false;
   signals:
 };
 } // namespace UIComponents
